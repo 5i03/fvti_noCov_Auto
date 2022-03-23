@@ -1,19 +1,11 @@
-import codecs
-from curses import echo
-from email.headerregistry import ParameterizedMIMEHeader
-from http.client import OK
 import json
-from pickle import GET
 import sys
 import time
 import requests
-# from urllib import request,parse
 import urllib.request
-# from pickle import GET
 import os
 import jsonpath
 import argparse
-# import str
 sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 
@@ -189,13 +181,11 @@ def r_s_t(dataType):
 
 def main():
     if os.path.isfile(rosterId + "_" + localDate + '_task_list.json'):
-        # print("原始文件已存在")
-        # dataType="1"
         # D_t_l()
-        # r_s_t(1)
-        # r_s_t(2)
-        # r_s_t(3)
-        # pass
+        r_s_t(1)
+        r_s_t(2)
+        r_s_t(3)
+
 
     # elif os.path.isfile(rosterId + "_" + localDate + 'task_list.json'):
     #     # print("分离当天任务成功")
@@ -204,7 +194,7 @@ def main():
         # print("文件不存在")
         # exit()
         D_t_l()
-        pass
+        main()
 
 
 main()
