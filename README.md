@@ -2,7 +2,11 @@
 福州职业技术学院健康励园自动日报脚本,The daily health report automation script of the "JianKangLiYuan" applet of Fuzhou Polytechnic(fvti)
 
 使用方法:
-本项目使用`python 3.6.5`请确保你用的版本号和我一致
+本项目开发使用`python 3.6.5`请确保你用的版本号和我一致或者比我更新!!!
+不要用python 2 用python 3!
+不要用python 2 用python 3!
+不要用python 2 用python 3!
+重要事情说三遍
 ```bash
 pip install -r requirements.txt
 
