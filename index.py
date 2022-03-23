@@ -152,20 +152,20 @@ def r_s_t(dataType):
     with open(rosterId + "_" + localDate + '_task_list.json', encoding='utf8') as json_file:
         config = json.load(json_file)
     if dataType == 1:
-        # dataType= '1'
+        # dataType= '1'jsonpath 从零开始,对不起,我的锅
+        healthId = jsonpath.jsonpath(config, "$.rows[0].healthId")
+        endTime = jsonpath.jsonpath(config, "$.rows[0].endTime")
+        dataType = jsonpath.jsonpath(config, "$.rows[0].dataType")
+    elif dataType == 2:
+        # dataType= '2'
         healthId = jsonpath.jsonpath(config, "$.rows[1].healthId")
         endTime = jsonpath.jsonpath(config, "$.rows[1].endTime")
         dataType = jsonpath.jsonpath(config, "$.rows[1].dataType")
-    elif dataType == 2:
+    elif dataType == 3:
         # dataType= '3'
         healthId = jsonpath.jsonpath(config, "$.rows[2].healthId")
         endTime = jsonpath.jsonpath(config, "$.rows[2].endTime")
         dataType = jsonpath.jsonpath(config, "$.rows[2].dataType")
-    elif dataType == 3:
-        # dataType= '3'
-        healthId = jsonpath.jsonpath(config, "$.rows[3].healthId")
-        endTime = jsonpath.jsonpath(config, "$.rows[3].endTime")
-        dataType = jsonpath.jsonpath(config, "$.rows[3].dataType")
     else:
         print("暂时不支持这种任务类型,请提交issue反馈")
         exit()
