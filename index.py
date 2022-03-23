@@ -6,6 +6,7 @@ import urllib.request
 import os
 import jsonpath
 import argparse
+from configs import *
 sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 
@@ -14,8 +15,8 @@ send_hosts = 'health.fvti.linyisong.top'
 baseURL = "https://" + send_hosts
 localDate = time.strftime('%Y-%m-%d', time.localtime())
 health_report_url = baseURL + '/api/mStuApi/updateHealthReportEpidemicHealthReport.do'
-rosterId = ''
-access_token = ""
+# rosterId = ''
+# access_token = ""
 user_agent = "Mozilla/5.0 (iPhone; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E217 MicroMessenger/6.8.0(0x16080000) NetType/WIFI Language/en Branch/Br_trunk MiniProgramEnv/Mac"
 send_header = {
     "Host": send_hosts,
