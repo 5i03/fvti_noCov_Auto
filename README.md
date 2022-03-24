@@ -3,8 +3,8 @@
 
 使用方法:
 本项目开发使用`python 3.6.5`请确保你用的版本号和我一致或者比我更新!!!
-不要用python 2 用python 3!
-不要用python 2 用python 3!
+不要用python 2 用python 3!<br />
+不要用python 2 用python 3!<br />
 不要用python 2 用python 3!
 重要事情说三遍
 ```bash
