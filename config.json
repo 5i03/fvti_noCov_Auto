@@ -1,0 +1,21 @@
+{
+    "userCode": "",
+    "userPwd": "",
+    "rosterId": "",
+    "access_token": "",
+    "studentName": "",
+    "send_hosts": "health.fvti.linyisong.top",
+    "isGfxReturn": "2",
+    "isJwReturn": "2",
+    "isContactPatient": "2",
+    "isContactRiskArea": "2",
+    "isHealthCodeOk": "2",
+    "isSick": "0",
+    "liveState": "2",
+    "nowAddress": "福建省福州市闽侯县上街镇113县道福州职业技术学院",
+    "nowAddressDetail": "校内学生公寓",
+    "nowTiwenState": "1",
+    "nowHealthState": "1",
+    "temperature": "36",
+    "details": ""
+}
