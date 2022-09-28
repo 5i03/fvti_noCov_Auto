@@ -1,20 +1,19 @@
 # coding:utf-8
 import codecs
-from distutils.command.config import config
 # from configs import *
 import json
 import logging
 # import urllib.request
 import os
-from random import random
+import random 
 import sys
 import time
 import jsonpath
 import requests
 import argparse
 import random
-import get_token
-
+import get_tk
+# import op_config
 # from configs import *
 # import demjson
 # 预防中文导致报错，规范输出为utf8
@@ -25,11 +24,25 @@ logging.basicConfig(level=logging.INFO,
 logger = logging.getLogger(__name__)
 # 透过系统时间获取今天的日期
 localDate = time.strftime('%Y-%m-%d', time.localtime())
+# def is_config_json_exist():
+    ## is_config_json_exist
+    ## 本函数用于检查config.json文件是否存在
+    # global config_file
+    # if os.path.isfile(config_file):
+    #     logger.info("配置文件已经存在")
+    #     return True
+    # else:
+    #     logger.info("配置文件并不存在")
+    #     # download file from 5i03.cn and wirted to config.json in current dir
+    #     logger.info("正在开始下载配置文件")
+    #     download_config_json()
+    #     logger.info("配置下载完成已经执行")
+    #     return False
 
 
 def read_config():
     # 读取配置文件config.json 读取学生名字，健康日报名册ID，和访问令牌,和填报用的数据
-    with open('config.json', encoding='utf8') as json_file:
+    with open('config.json','r', encoding='utf8') as json_file:
         config = json.load(json_file)
     rosterId = config['rosterId']
     access_token = config['access_token']
@@ -72,8 +85,7 @@ send_header = {
     # "Content-Length": "null"
 }
 # which path i am in
-wpiai = sys.path[0]
-task_save_2 = wpiai + "/task/"
+task_save_2 = os.path.normpath(sys.path[0] + '/task/')
 dataDate = "dataDate=" + localDate
 
 
@@ -163,11 +175,14 @@ def report_data_for_task(dataType):
     # q=demjson.decode(r.text)
     # print(r.text)
     # logger.info(r.text)
+    
     json_data = json.loads(r.text)
     if json_data['isSuccess'] == True:
-        logger.info("任务" + str(logtype) + "上报成功")
+
+        # logger.info(logtype + "任务提交成功")
+        logger.info("任务类型参数" + str(dataType) + "上报成功")
     else:
-        logger.error("任务" + str(logtype) + "上报失败")
+        logger.error("任务类型参数" + str(dataType) + "上报失败")
         logger.error("错误信息:" + json_data['message'])
 
 
@@ -208,9 +223,11 @@ def main():
 
 if __name__ == '__main__':
     if rosterId == "" or access_token == "" or studentName == "":
-        logger.error("config.json中未找到令牌 正在引导获得令牌")
-        get_token.get_token()
-        read_config()
+        logger.error("令牌配置未写入config.json，正在引导获得令牌")
+        get_tk.get_token()
+        if get_tk.get_token() == True:
+            read_config()
+            main()
     else:
         logger.info('=' * 3 + localDate + studentName+'的签到任务开始执行' + '=' * 3)
         read_config()
