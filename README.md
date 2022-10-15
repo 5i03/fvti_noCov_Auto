@@ -1,4 +1,4 @@
-# fvti_nCov_Auto_Reporter
+## 如果你觉得好用的话,可以试着帮我点个Star和Follow
 福州职业技术学院健康管理系统自动化脚本
 The automation script of the "JianKangLiYuan" applet of Fuzhou Polytechnic(fvti)
 支持功能如下:
