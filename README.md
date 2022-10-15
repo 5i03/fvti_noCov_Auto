@@ -12,7 +12,6 @@ The automation script of the "JianKangLiYuan" applet of Fuzhou Polytechnic(fvti)
 项目开源后可以再增加其他开源协议，但是协议必须比 GPL 宽泛
 不提供品质担保，使用采用此协议的软件产生的任何后果都不会负责
 
-## 声明
 
 ### 免责声明
 
@@ -64,9 +63,9 @@ The automation script of the "JianKangLiYuan" applet of Fuzhou Polytechnic(fvti)
     >
     > 特别强调代挂服务是使用者自行开设，与项目所有者无关（责任、知情、利益等方面无关）。
     
-使用方法:
+# 使用方法:
 本项目开发使用`python 3.6.5`请确保你用的版本号和我一致或者比我更新!!!<br />
-不要用python 2 用python 3!<br />
-不要用python 2 用python 3!<br />
-不要用python 2 用python 3!<br />
+
 重要事情说三遍
+
+在配置文件中写入你的用户名,密码和你的身份
