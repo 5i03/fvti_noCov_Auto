@@ -7,7 +7,7 @@ The automation script of the "JianKangLiYuan" applet of Fuzhou Polytechnic(fvti)
 3. 支持统计未填写日报的人名(其他信息需教师账户支持)
 4. 支持学生自动化填写健康日报
 5. 支持5i03推送服务,无需登入服务器,即可知道执行状态
-本项目基于GPLv3许可:
+## 本项目基于GPLv3许可:
 使用 / 修改 / 衍生 GPL 类库的代码或软件，必须也采用 GPL 协议进行开源
 项目开源后可以再增加其他开源协议，但是协议必须比 GPL 宽泛
 不提供品质担保，使用采用此协议的软件产生的任何后果都不会负责
