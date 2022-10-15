@@ -34,7 +34,7 @@ logger.addHandler(file_handler)
 
 
 def read_push_config():
-    with open('config.json', 'r', encoding='utf8') as json_file:
+    with open(os.path.normpath(sys.path[0]+'/config.json'), 'r', encoding='utf8') as json_file:
         config = json.load(json_file)
     stk = config['stk']
     sender = config['sender']
