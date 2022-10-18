@@ -12,7 +12,7 @@ import jsonpath
 import requests
 import argparse
 import random
-import send_msg
+
 
 sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 logging.basicConfig(level=logging.INFO,
@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 # 透过系统时间获取今天的日期
 localDate = time.strftime('%Y-%m-%d', time.localtime())
 
-with open('cookie.json', 'r', encoding='utf-8') as f:
+with open(os.path.normpath(sys.path[0]+'/cookie.json'), 'r', encoding='utf-8') as f:
     cookie = json.load(f)
     jsid = cookie['value']
 if cookie['value'] == '':

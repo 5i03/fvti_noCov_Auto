@@ -69,7 +69,7 @@ def get_tk(Username, Password, role):
                 json.dump(config, f, ensure_ascii=False)
             logger.info("配置文件写入完成")
             msg=msg+str('教师'if role == 'Teacher' else '学生')+"鉴权并保存成功 \n Name: "+str(Name)+' ID: '+str(Id) +' Token: '+str(accessToken)
-            # msgSender.send_msg(msg)
+            msgSender.send_msg(msg)
         else:
             err_msg = json_data['message']
             logger.info("令牌获取失败 错误信息: "+err_msg)

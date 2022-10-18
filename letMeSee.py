@@ -231,7 +231,7 @@ def getSummaryAll():
 
 if __name__ == '__main__':
     try:
-        # getSummaryAll()
+        getSummaryAll()
         getDataTypeNotReport()
         # getDataType2NotReport()
         # getDataType3NotReport()
