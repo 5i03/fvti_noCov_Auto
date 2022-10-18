@@ -7,13 +7,15 @@ import requests
 import json
 import time
 import logging
+import os
+import sys
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', filename='report.log')
 logger = logging.getLogger(__name__)
 
 
 def read_config():
-    with open('config.json', encoding='utf8') as json_file:
+    with open(os.path.normpath(sys.path[0]+'/config.json'), encoding='utf8') as json_file:
         config = json.load(json_file)
     isGfxReturn = config['isGfxReturn']
     isJwReturn = config['isJwReturn']
@@ -40,7 +42,7 @@ isGfxReturn, isJwReturn, isContactPatient, isContactRiskArea, \
 
 def set_report_detail():
     # 读取配置文件config.json 读取学生名字，健康日报名册ID，和访问令牌,和填报用的数据
-    with open('config.json', encoding='utf8') as json_file:
+    with open(os.path.normpath(sys.path[0]+'/config.json'), encoding='utf8') as json_file:
         config = json.load(json_file)
     config['isGfxReturn'] = input('是否从高风险返回? 2为否/1为是:')
     config['isJwReturn'] = input('是否从境外返回? 2为否/1为是:')

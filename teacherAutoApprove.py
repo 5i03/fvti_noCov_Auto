@@ -13,7 +13,7 @@ import time
 import requests
 import argparse
 import random
-import SQLiteOperator
+# import SQLiteOperator
 import msgSender
 import logging.handlers
 import TokenHelper
@@ -49,7 +49,7 @@ msg = ''
 
 
 def read_config():
-    with open('config.json', 'r', encoding='utf8') as json_file:
+    with open(os.path.normpath(sys.path[0]+'/config.json'), 'r', encoding='utf8') as json_file:
         config = json.load(json_file)
     accessToken = config['accessToken']
     Name = config['Name']

@@ -108,7 +108,7 @@ def begain_selenium(b,uid,pwd):
     cookie_res=driver.get_cookie('JSESSIONID') #JSESSIONID 是电脑版登录时使用的鉴权方式
     print('你的cookie是:\n'+str(cookie_res)+'\nCookie一般2小时内有效')
     # 把cookie_res写入cookie.json
-    with open('cookie.json','w') as f:
+    with open(os.path.normpath(sys.path[0]+'/cookie.json'),'w') as f:
       json.dump(cookie_res,f)
     f.close()
     msg='正在关闭浏览器'

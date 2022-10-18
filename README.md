@@ -1,71 +1,63 @@
-## 如果你觉得好用的话,请帮我点个Star和Follow(或Watch),谢谢
-福州职业技术学院健康管理系统自动化脚本
-The automation script of the "JianKangLiYuan" applet of Fuzhou Polytechnic(fvti)
-支持功能如下:
-1. 自动更新令牌,无需有人值守
-2. 支持辅导员自动批准当日往返出入校申请
-3. 支持统计未填写日报的人名(其他信息需教师账户支持)
-4. 支持学生自动化填写健康日报
-5. 支持5i03推送服务,无需登入服务器,即可知道执行状态
-## 本项目基于GPLv3许可:
-使用 / 修改 / 衍生 GPL 类库的代码或软件，必须也采用 GPL 协议进行开源
-项目开源后可以再增加其他开源协议，但是协议必须比 GPL 宽泛
-不提供品质担保，使用采用此协议的软件产生的任何后果都不会负责
+# fvti_nCov_Auto_Reporter
+福州职业技术学院健康励园自动日报脚本,The daily health report automation script of the "JianKangLiYuan" applet of Fuzhou Polytechnic(fvti)
 
+使用方法:
+本项目开发使用`python 3`请确保你用的版本号和我一致或者比我更新!!!<br />
 
-### 免责声明
+```bash
+pip3 install -r requirements.txt
+#如果你使用的Python版本3的执行路径是Python，请把我提到的Python3改成Python
+```
+安装完成依赖包后
 
-本项目为Python学习交流的开源非营利项目，仅作为程序员之间相互学习交流之用。
+~~请自行在手机或者PC安装抓包软件抓取请求头（请确保抓包软件能抓取https请求）<br />点开 健康日报 后返回抓包软件查看接口返回的rosterId和access\ token
+之后打开configs.py
+把你抓包获得的rosterId,access\ token替换`configs.py`中的值~~
+> 在config.json中修改 "Username": "这里写学号","Password": "这里写密码"，role": "这里写你的身份：Teacher，Student，SquadLeader",
+之后运行Python3 TokenHelper.py
+~~并输入你的账号密码~~
+ID和Token会自动写入config.json
+然后执行index.py
 
-严禁用于商业用途，禁止使用本项目进行任何盈利活动。
+```bash
+python3 index.py
+```
 
-使用者请遵从相关政策。对一切非法使用所产生的后果，我们概不负责。
+如果没有报错即可
+请在17点后使用定时触发器执行`python3 index.py`即可自动填报
 
-本项目对您如有困扰请联系我们删除。
+目前已经写好基本的函数,其他功能的还在做,敬请期待,谢谢!
+后期可能会增加多用户,更丰富的自定义选项等,先凑合着用吧~
+有bug,建议啥的直接发issue,我会做出修改的!
 
-### 对开发者
-
-* 根据GPLv3 你随意修改到自己的代码中，但<u>必须在代码注释中标注来源,并公开衍生作品的源代码</u>
-
-### 对使用者
-
-* 请不要惹人注目，比如
-
-  * 进入签到排行榜前列、乱填地址、张扬、到处炫耀
-
-    > 我相信这对于不管是不是计算机专业的同学来说,都不是一个困难的事情
-    
-    > 只是配置一个自动签到是很简单的事情，不要到处炫耀。
-
-* 当脚本使用人数过多、过于张扬时，容易造成以下后果
-
-  * 服务商更新密钥/接口/表单提交方式
-  * 今服务商的对IP进行封锁(具体表现为HTTP 418)
-  * <u>公安局请你喝茶</u>
-
-* 留意学校通知，看到譬如 "要求如实填写签到信息" 消息时，请将脚本里面填写的位置更新到你所在的真实地址
-
-### 对代挂
-
-* 请保持低调，不得主动宣传代挂服务(比如在论坛发布帖子等)。<u>不得以代挂服务吸引流量（比如以此引诱加群等）</u>
-
-* 考虑到服务器以及劳动成本，<u>允许(非营利性)收费代挂</u>，但需要**满足以下所有条件**
-
-  * 对单用户收费**累计总额**不得超过服务器成本和一瓶水的价格
-
-  * 对服务对象**原样**转发以下文字
-
-    > 根据自动签到项目所有者要求，将以下文字告知服务对象：
-    >
-    > 本服务基于 GPLv3 的免费开源项目。
-    >
-    > 项目所有者有条件地允许自行开设收费代挂，收费的主要目的是被服务者对提供服务者(部署脚本时间的消耗、服务器资源消耗等)的补偿，而非盈利。
-    >
-    > 特别强调代挂服务是使用者自行开设，与项目所有者无关（责任、知情、利益等方面无关）。
-    
-# 使用方法:
-本项目开发使用`python 3.6.5`请确保你用的版本号和我一致或者比我更新!!!<br />
-
-重要事情说三遍
-
-在配置文件中写入你的用户名,密码和你的身份
+初次运行请修改配置文件 config.json
+```
+{
+    "Username": "学号",
+    "Password": "密码",
+    "role": "Teacher，Student，SquadLeader", //如果你是学生，但你能查看日报未打卡情况，请设置你的身份为SquadLeader而非Student
+    "Id": "",//TokenHelper自动填写
+    "way": "qq",//推送方式
+    "stk": "",推送服务令牌
+    "isSendToGroup": "False",//是否推送到群组
+    "sender": "",//发送者QQ号，使用5i03 QQ推送请填写
+    "receiver": "",//接收者
+    "xyMsgServerURL": "",//推送服务器地址
+    "accessToken": "",//令牌，请执行TokenHelper自动填写
+    "Name": "",//TokenHelper自动填写
+    "sendHost": "health.fvti.linyisong.top",
+    "isGfxReturn": "2",
+    "isJwReturn": "2",
+    "isContactPatient": "2",
+    "isContactRiskArea": "2",
+    "isHealthCodeOk": "2",
+    "isSick": "0",
+    "liveState": "2",
+    "nowAddress": "福建省福州市闽侯县上街镇113县道福州职业技术学院",
+    "nowAddressDetail": "校内学生公寓",
+    "nowTiwenState": "1",
+    "nowHealthState": "1",
+    "temperature": "36",
+    "details": ""
+}
+```

@@ -68,8 +68,8 @@ def get_tk(Username, Password, role):
             with open('config.json', 'w+', encoding='utf-8') as f:
                 json.dump(config, f, ensure_ascii=False)
             logger.info("配置文件写入完成")
-            msg=msg+"鉴权且写入成功 "+str(Name)+'ID:'+str(Id) +' 令牌: '+str(accessToken)
-            msgSender.send_msg(msg)
+            msg=msg+str('教师'if role == 'Teacher' else '学生')+"鉴权并保存成功 \n Name: "+str(Name)+' ID: '+str(Id) +' Token: '+str(accessToken)
+            # msgSender.send_msg(msg)
         else:
             err_msg = json_data['message']
             logger.info("令牌获取失败 错误信息: "+err_msg)
@@ -80,7 +80,7 @@ def get_tk(Username, Password, role):
 
 
 def read_config():
-    with open('config.json', 'r', encoding='utf8') as json_file:
+    with open(os.path.normpath(sys.path[0]+'/config.json'), 'r', encoding='utf8') as json_file:
         config = json.load(json_file)
     accessToken = config['accessToken']
     Name = config['Name']
