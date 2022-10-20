@@ -21,21 +21,19 @@ ID和Token会自动写入config.json
 然后执行index.py
 
 ```bash
-python3 index.py [-t 0 早中晚|1 早报|2 午报|3 晚报| 
+python3 index.py [-t 0 早中晚|1 早报|2 午报|3 晚报|] 
 ```
-
+### 如果手动填报过了脚本不会自动覆盖
 
 如果没有报错即可
 请在17点后使用定时触发器执行`StuAutoReport.py `即可自动填报
+
 也可运行crontab -e 后输入如下代码
 ```bash
 0 17 * * * python3 /root/fvti_noCov_Script/StuAutoReport.py -t 3
 15 0 * * * python3 /root/fvti_noCov_Script/StuAutoReport.py -t 1
 0 10 * * * python3 /root/fvti_noCov_Script/StuAutoReport.py -t 2
 ```
-目前已经写好基本的函数,其他功能的还在做,敬请期待,谢谢!
-后期可能会增加多用户,更丰富的自定义选项等,先凑合着用吧~
-有bug,建议啥的直接发issue,我会做出修改的!
 
 初次运行请修改配置文件 config.json
 ```
