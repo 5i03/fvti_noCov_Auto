@@ -42,7 +42,7 @@ python3 index.py [-t 0 早中晚|1 早报|2 午报|3 晚报|
 {
     "Username": "学号",
     "Password": "密码",
-    "role": "Teacher，Student，SquadLeader", //如果你是学生，但你能查看日报未打卡情况，请设置你的身份为SquadLeader而非Student
+    "role": "Teacher，Student", //如果你是学生，但你能查看日报未打卡情况，请设置你的身份为SquadLeader而非Student
     "Id": "",//TokenHelper自动填写
     "way": "qq",//推送方式
     "stk": "",推送服务令牌
