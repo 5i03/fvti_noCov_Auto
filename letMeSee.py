@@ -225,8 +225,8 @@ def getSummaryAll():
         nofill2 = 'NULL'
         nofill3 = 'NULL'
         logger.info('晨报:'+nofill1+'人 午报'+nofill2+'人 晚报'+nofill3+'人 未填写')
-        msg = '晨报:'+nofill1+'人 午报'+nofill2+'人 晚报'+nofill3+'人 未填写'
-        msgSender.send_msg(msg)
+        # msg = '晨报:'+nofill1+'人 午报'+nofill2+'人 晚报'+nofill3+'人 未填写'
+        # msgSender.send_msg(msg)
 
 
 if __name__ == '__main__':
